@@ -11,7 +11,7 @@ using namespace std;
 
 void displayAuthorInformation() {
     cout << "Author: Muhammad Bilal" << endl;
-    cout << "Registeration Number: BSCS23146" << endl;
+    cout << "Registeration Number: Bscs23146" << endl;
     cout << "Course Name: Data Structures" << endl;
 }
 
