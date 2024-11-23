@@ -12,13 +12,19 @@ public:
     int priority;
     int timeToPrint;
     string fileType;
+    string content; 
 
-    File(const string& Name, const string& Owner, bool ReadOnly, bool ReadWrite, const string& Type, const string& content, TreeNode* parent = nullptr)
-        : TreeNode(Name, Owner, ReadOnly, ReadWrite, parent), fileType(Type) {
+    File(const string& Name, const string& Owner, bool ReadOnly, bool ReadWrite, const string& Type, const string& Content, TreeNode* Parent = nullptr)
+        : TreeNode(Name, Owner, ReadOnly, ReadWrite, Parent), fileType(Type), content(Content) { 
         Characters = countCharacters(content);
         Lines = countLines(content);
         CharactersPerLine = averageCharactersPerLine();
-        priority = 1;
+        if (ReadWrite == true) {
+            priority = 2;
+        }
+        else {
+            priority = 1;
+        }
         timeToPrint = calculatePrintingTime();
     }
 
@@ -44,6 +50,7 @@ public:
     }
 
     void updateContent(const string& newContent) {
+        content = newContent; 
         Characters = countCharacters(newContent);
         Lines = countLines(newContent);
         CharactersPerLine = averageCharactersPerLine();
@@ -67,4 +74,5 @@ public:
         name = newName;
     }
 };
+
 
